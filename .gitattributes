@@ -1,0 +1,4 @@
+data/Predicted_Targets_Context_Scores.default_predictions.txt filter=lfs diff=lfs merge=lfs -text
+data/h5_datasets/test.h5 filter=lfs diff=lfs merge=lfs -text
+data/h5_datasets/train.h5 filter=lfs diff=lfs merge=lfs -text
+data/h5_datasets/valid.h5 filter=lfs diff=lfs merge=lfs -text
