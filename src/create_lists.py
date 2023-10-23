@@ -11,7 +11,8 @@ from scipy.stats import spearmanr
 
 def main(args):
 
-    df = pd.read_csv(os.path.join('figures', "results_no_mirna.csv"), sep='\t', header=[0,1], index_col=0)
+    # the results_no_mirna.csv files contains all the results from the baseline training (the R^2 for the test set)
+    df = pd.read_csv(os.path.join('results', "results_no_mirna.csv"), sep='\t', header=[0,1], index_col=0)
 
     ScoreMatrix = pd.read_csv(os.path.join(args.data_dir, "ScoreMatrix.csv"), sep="\t", index_col=0)
 
@@ -21,11 +22,9 @@ def main(args):
             print('Loading predictions and results for: ', primary_site, cancer_subtype, best_n)
             preds = pd.read_csv(os.path.join(args.results_dir, primary_site, 'no_mirna', cancer_subtype, str(best_n), 'predictions.txt'), sep='\t', index_col=0)
             genes = list(preds.index)
-            # print(len(genes))
             mirnas = h5py.File(os.path.join(args.data_dir, 'h5_datasets', f'{primary_site}.h5'), 'r')
             mirnas = mirnas['mirnaName']
             mirnas = [m.decode() for m in mirnas]
-            # print(len(mirnas))
 
             # the genes in the score matrix may not be in the same order as in the predictions
             # therefore we need to reorder the score matrix
