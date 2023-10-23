@@ -1,0 +1,12 @@
+name: miREx
+channels:
+  - defaults
+dependencies:
+  - python=3.6.9
+  - tensorflow-gpu=1.15
+  - h5py=2.10.0
+  - pandas
+  - pydot
+  - scikit-learn
+  - matplotlib
+  - tqdm
